@@ -1,31 +1,24 @@
-import React from 'react';
+import React  from 'react';
+import axios from "axios"
+import { useEffect } from 'react';
 
-class BestBooks extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: []
-    }
+export default function BestBooks() {
+  useEffect(() => {
+    getBooks()
+  },[])
+  
+  async function getBooks() {
+    const API = "http://localhost:8098/book";
+    const results = await axios.get(API);
+    console.log(results.data);
   }
 
-  /* TODO: Make a GET request to your API to fetch all the books from the database  */
+  return (
+    <>
+      <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
+      
 
-  render() {
-
-    /* TODO: render all the books in a Carousel */
-
-    return (
-      <>
-        <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
-        {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
-        ) : (
-          <h3>No Books Found :(</h3>
-        )}
-      </>
-    )
-  }
+    </>
+  )
+  
 }
-
-export default BestBooks;
