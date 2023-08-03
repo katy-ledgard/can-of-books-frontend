@@ -17,16 +17,17 @@ export default function BestBooks() {
 
   return (
     <>
-      {books &&
-        books.map((book, key) => {
-          return (
-            <div key={key}>
-              <h3>{book.title}</h3>
-              <p>{book.description}</p>
-              <p>{book.status}</p>
-            </div>
-          );
-        })}
+      {books
+        ? books.map((book, key) => {
+            return (
+              <div key={key}>
+                <h3>{book.title}</h3>
+                <p>{book.description}</p>
+                <p>{book.status}</p>
+              </div>
+            );
+          })
+        : "There are no books to show"}
     </>
   );
 }
