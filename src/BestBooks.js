@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import AddBook from "./AddBook";
 import { useEffect, useState } from "react";
 
 export default function BestBooks() {
@@ -17,6 +18,7 @@ export default function BestBooks() {
 
   return (
     <>
+    <AddBook/>
       {books
         ? books.map((book, key) => {
             return (
